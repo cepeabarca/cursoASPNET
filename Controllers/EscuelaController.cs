@@ -1,5 +1,8 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
+using cursoASP.Models;
+using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace cursoASP.Controllers
 {
@@ -12,6 +15,8 @@ namespace cursoASP.Controllers
             escuela.EscuelaId = Guid.NewGuid().ToString();
             escuela.Nombre = "Platzi School";
             
+            //bolsa dinamica de variables o datos dinamicos
+            ViewBag.Cosadinamica = "La Monja";
             //si no se especifica la vista, este regresa Index,
             //el parametro es un modelo de datos que se usa en la vista
             return View(escuela);

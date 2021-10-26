@@ -1,5 +1,6 @@
+using System;
 
-namespace cursoASP.Controllers
+namespace cursoASP.Models
 {
     public class Escuela
     {
