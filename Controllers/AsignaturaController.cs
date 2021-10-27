@@ -6,23 +6,21 @@ using System.Diagnostics;
 
 namespace cursoASP.Controllers
 {
-    public class EscuelaController : Controller
+    public class AsignaturaController : Controller
     {
         public IActionResult Index()
         {
-            var escuela = new Escuela();
-            escuela.AñoDeCreación = 2005;
-            escuela.UniqueId = Guid.NewGuid().ToString();
-            escuela.Nombre = "Platzi School";
-            escuela.Ciudad = "Bogota";
-            escuela.Pais = "Colombia";
-            escuela.Dirección = "av. siempre viva";
-            escuela.TipoEscuela = TiposEscuela.Secundaria;
+            var asignatura = new Asignatura(){
+                UniqueId =Guid.NewGuid().ToString(),
+                Nombre = "Programacion"
+            };
+
             //bolsa dinamica de variables o datos dinamicos
             ViewBag.Cosadinamica = "La Monja";
+            ViewBag.Fecha = DateTime.Now;
             //si no se especifica la vista, este regresa Index,
             //el parametro es un modelo de datos que se usa en la vista
-            return View(escuela);
+            return View(asignatura);
         }
     }
 }

@@ -11,8 +11,14 @@
 
 <div class="text-center">
     <h1>@ViewData["Title"]</h1>
-    <h1 class="display-4">Escuela</h1>
-    <h1 class="display-4">Nombre: @Model.Nombre</h1>
+    <h2 class="display-4">Escuela</h2>
+    <h3 class="display-4">Nombre: @Model.Nombre</h3>
+    <h4 class="display-4">Tipo de Escuela: @Model.TipoEscuela</h4>
+    <address>
+        <p>Direccion: @Model.Dirección</p>
+        <p>Pais: @Model.Pais</p>
+        <p>Ciudad: @Model.Ciudad</p>
+    </address>
     <p><strong>Año fundaci&oacute;n: @Model.AñoDeCreación</strong> </p>
     <p><i>@ViewBag.Cosadinamica</i></p>
     <p><i>@ViewData["Cosadinamica"] </i></p>

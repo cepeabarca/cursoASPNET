@@ -1,0 +1,18 @@
+﻿<!--Permite definir el tipo del modelo para que sea fuertemente tipado!-->
+@model  Asignatura
+
+@{
+    //esta variable se puede incorporar en el html
+    ViewData["Title"] = "Información Asignatura";
+    // si no se pone ruta se busca en shared, si no se pone extension toma por defecto .html
+    Layout = "simple";
+
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <h2 class="display-4">Nombre: @Model.Nombre</h2>
+    <p><i>@ViewBag.Cosadinamica</i></p>
+    <p><i>@ViewBag.Fecha</i></p>
+</div>
+
