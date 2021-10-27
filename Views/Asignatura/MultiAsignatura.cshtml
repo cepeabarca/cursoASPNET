@@ -1,5 +1,5 @@
 ﻿<!--Permite definir el tipo del modelo para que sea fuertemente tipado!-->
-@model  Asignatura
+@model  List<Asignatura>
 
 @{
     //esta variable se puede incorporar en el html
@@ -12,16 +12,17 @@
 
 <div class="text-center">
 
-<strong>Desde la vista normal</strong>
-<p>
-    Nombre: @Model.Nombre <br/>
-    Id: @Model.UniqueId
-</p>
 <strong>Desde la vista parcial</strong>
+<partial name="ListaObjetoEscuela"/>
+
 <!--por convencion si no le paso el modelo, la vista parcial
 asume que le estamos mandando el modelo de la clase que lo contiene
 mode = "modelo especifico" !-->
-<partial name ="ObjetoEscuelaSimple"/>
+@foreach (var asignatura in Model)
+{
+    <partial name ="ObjetoEscuelaSimple" model= "@asignatura"/>
+}
+
 
     <p><i>@ViewBag.Fecha</i></p>
 </div>
