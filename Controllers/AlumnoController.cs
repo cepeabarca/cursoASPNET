@@ -11,9 +11,17 @@ namespace cursoASP.Controllers
     public class AlumnoController : Controller
     {
 
-        public IActionResult Index()
+        public IActionResult Index(string id)
         {
-            return View(_context.Alumnos.FirstOrDefault());
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                var alumno = from alum in _context.Alumnos
+                                 where alum.Id == id
+                                 select alum;
+                return alumno.Any() ? View(alumno.SingleOrDefault()) : View("MultiAlumno", _context.Alumnos.ToList());
+            }
+            else
+                return View("MultiAlumno", _context.Alumnos.ToList());
         }
 
         public IActionResult MultiAlumno()

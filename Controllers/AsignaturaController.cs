@@ -11,9 +11,21 @@ namespace cursoASP.Controllers
     public class AsignaturaController : Controller
     {
 
-        public IActionResult Index()
+        //permite declarar una ruta para el metodo del controlador
+        [Route("Asignatura/Index")]
+        [Route("Asignatura/Index/{asignaturaId}")]
+        public IActionResult Index(string asignaturaId)
         {
-            return View(_context.Asignaturas.FirstOrDefault());
+            if (!string.IsNullOrWhiteSpace(asignaturaId))
+            {
+                var asignatura = from asig in _context.Asignaturas
+                                 where asig.Id == asignaturaId
+                                 select asig;
+                return asignatura.Any() ? View(asignatura.SingleOrDefault()) : View("MultiAsignatura", _context.Asignaturas.ToList());
+            }
+            else
+                return View("MultiAsignatura", _context.Asignaturas.ToList());
+
         }
 
         public IActionResult MultiAsignatura()
@@ -47,7 +59,7 @@ namespace cursoASP.Controllers
             //ViewBag.Fecha = DateTime.Now;
             //si no se especifica la vista, este regresa Index,
             //el parametro es un modelo de datos que se usa en la vista
-            return View("MultiAsignatura",_context.Asignaturas.ToList());
+            return View("MultiAsignatura", _context.Asignaturas.ToList());
         }
 
         private EscuelaContext _context;

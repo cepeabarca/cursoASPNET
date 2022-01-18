@@ -11,7 +11,7 @@ namespace cursoASP.Models
 
         public DbSet<Asignatura> Asignaturas {get; set;}
 
-        public DbSet<Curso> Cursoos {get; set;}
+        public DbSet<Curso> Cursos {get; set;}
 
         public DbSet<Alumno> Alumnos {get; set;}
 
@@ -93,11 +93,12 @@ namespace cursoASP.Models
                         new Curso{
                             EscuelaId = escuela.Id,
                             Nombre = "101",
-                            Jornada = TiposJornada.Mañana },
-                        new Curso{EscuelaId = escuela.Id, Nombre = "201", Jornada = TiposJornada.Mañana},
-                        new Curso{EscuelaId = escuela.Id, Nombre = "301", Jornada = TiposJornada.Mañana},
-                        new Curso{EscuelaId = escuela.Id, Nombre = "401", Jornada = TiposJornada.Tarde},
-                        new Curso{EscuelaId = escuela.Id, Nombre = "501", Jornada = TiposJornada.Tarde},
+                            Jornada = TiposJornada.Mañana,
+                            Dirección = "avenida cienfuegos" },
+                        new Curso{EscuelaId = escuela.Id, Nombre = "201", Jornada = TiposJornada.Mañana, Dirección = "avenida cienfuegos"},
+                        new Curso{EscuelaId = escuela.Id, Nombre = "301", Jornada = TiposJornada.Mañana, Dirección = "avenida cienfuegos"},
+                        new Curso{EscuelaId = escuela.Id, Nombre = "401", Jornada = TiposJornada.Tarde, Dirección = "avenida cienfuegos"},
+                        new Curso{EscuelaId = escuela.Id, Nombre = "501", Jornada = TiposJornada.Tarde, Dirección = "avenida cienfuegos"},
             };
         }
 
