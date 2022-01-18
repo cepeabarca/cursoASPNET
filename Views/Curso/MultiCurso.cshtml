@@ -1,0 +1,23 @@
+﻿<!--Permite definir el tipo del modelo para que sea fuertemente tipado!-->
+@model  IEnumerable<Curso>
+
+@{
+    //esta variable se puede incorporar en el html
+    ViewData["Title"] = "Información Cursos";
+    // si no se pone ruta se busca en shared, si no se pone extension toma por defecto .html
+    Layout = "simple";
+
+}
+
+
+<div class="text-center">
+<!--por convencion si no le paso el modelo, la vista parcial
+asume que le estamos mandando el modelo de la clase que lo contiene
+mode = "modelo especifico" !-->
+
+
+    <partial name="ListaObjetoEscuela"/>
+
+    <p><i>@ViewBag.Fecha</i></p>
+</div>
+

@@ -1,0 +1,29 @@
+﻿<!--Permite definir el tipo del modelo para que sea fuertemente tipado!-->
+@model  Curso
+
+@{
+    //esta variable se puede incorporar en el html
+    ViewData["Title"] = "Información Curso";
+    // si no se pone ruta se busca en shared, si no se pone extension toma por defecto .html
+    Layout = "simple";
+
+}
+
+
+<div class="text-center">
+<h2>@ViewBag.MensajeExtra</h2>
+<strong>Desde la vista normal</strong>
+<p>
+    Nombre: @Model.Nombre <br/>
+    Id: @Model.Id
+</p>
+<strong>Desde la vista parcial</strong>
+<!--por convencion si no le paso el modelo, la vista parcial
+asume que le estamos mandando el modelo de la clase que lo contiene
+mode = "modelo especifico" !-->
+<partial name ="ObjetoEscuelaSimple"/>
+
+    <p><i>@ViewBag.Fecha</i></p>
+
+</div>
+

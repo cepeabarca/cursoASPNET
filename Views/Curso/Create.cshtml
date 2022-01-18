@@ -1,0 +1,36 @@
+﻿<!--Permite definir el tipo del modelo para que sea fuertemente tipado!-->
+@model Curso
+
+@{
+    //esta variable se puede incorporar en el html
+    ViewData["Title"] = "Creación de curso";
+    // si no se pone ruta se busca en shared, si no se pone extension toma por defecto .html
+    Layout = "simple";
+
+}
+
+
+<div class="text-center" asp-validation-summary="All">
+    <h1>@ViewData["Title"]</h1>
+    <form method="POST">
+        <div>
+            <label asp-for="Nombre" ></label>
+            <input asp-for="Nombre" />
+        </div>
+        <div>
+            <!--SE COLOCA DE FORMA DINAMICA PARA QUE LA ETIQUETA TOME LOS PARAMETROS DE DATA ANOTATIONS DEL MODELO !-->
+            <label asp-for="Dirección" ></label>
+            <input asp-for="Dirección" />
+        </div>
+        <div>
+            <label asp-for="Jornada" ></label>
+            @Html.DropDownList(
+                "Jornada", Html.GetEnumSelectList<TiposJornada>(),
+                "Selecciones una Jornada",
+                new {@class = "form-control"}
+            )
+        </div>
+        <input type="submit" />
+    </form>
+    <p><i>@ViewBag.Fecha</i></p>
+</div>
